@@ -1,0 +1,34 @@
+<form (ngSubmit)="submitForm()">
+    <div class="form-group">
+      <label for="recipeName">Recipe Name:</label>
+      <input type="text" class="form-control" id="recipeName" name="recipeName" required [(ngModel)]="recipe.name">
+      <label for="imageUrl">Image Url:</label>
+      <input type="text" class="form-control" id="imageUrl" name="imageUrl" required [(ngModel)]="recipe.img_url">
+
+    </div>
+    
+    <div class="form-group" *ngFor="let ingredient of recipe.ingredients; let i = index;">
+      <label for="ingredient{{i}}">Ingredient:</label>
+      <input type="text" class="form-control" id="ingredient{{i}}" name="ingredient{{i}}" required [(ngModel)]="ingredient.name">
+      
+      <label for="amount{{i}}">Amount:</label>
+      <input type="text" class="form-control" id="amount{{i}}" name="amount{{i}}" required [(ngModel)]="ingredient.amount">
+    </div>
+    
+    <button type="button" class="btn btn-primary" (click)="addIngredient()">Add Ingredient</button>
+    <button type="submit" class="btn btn-success">Submit</button>
+    <div class="col-12 d-sm-none d-md-none d-lg-none d-xl-none mt-4"></div>
+
+  </form>
+  <div class="col-12 d-sm-none d-md-none d-lg-none d-xl-none mb-4"></div>
+
+  <!-- <div *ngIf="submittedRecipe">
+    <h2>Submitted Recipe</h2>
+    <p>Name: {{ submittedRecipe.name }}</p>
+    <ul>
+      <li *ngFor="let ingredient of submittedRecipe.ingredients">
+        {{ ingredient.name }} - {{ ingredient.amount }}
+      </li>
+    </ul>
+  </div> -->
+  
