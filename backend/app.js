@@ -30,6 +30,15 @@ const blogPostSchema = new Schema({
 
 const BlogPost = mongoose.model('BlogPost', blogPostSchema);
 
+const blogRecipeSchema = new Schema({
+  title: String,
+  content: String,
+  img_url: String,
+  date: { type: Date, default: Date.now }
+});
+
+const BlogRecipe = mongoose.model('BlogRecipe', blogRecipeSchema);
+
 // Create a new blog post and save it to the database
 app.post('/posts', async (req, res) => {
   try {
@@ -72,3 +81,45 @@ app.get('/posts', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
+/////Recipes
+
+
+app.post('/recipes', async (req, res) => {
+  try {
+    const { title, content, img_url } = req.body; // Assuming the request body contains title and content
+    console.log("this is there",req.body)
+    const newRecipe = new BlogRecipe({ title, content, img_url });
+    const savedRecipe = await newRecipe.save();
+    res.status(201).json(savedRecipe); // Respond with the saved post
+  } catch (error) {
+    console.error('Error saving blog post:', error);
+    res.status(500).json({ error: 'Error saving blog post' });
+  }
+});
+
+// app.delete('/recipes/:id', async (req, res) => {
+//   try {
+//     const postId = req.params.id;
+//     const deletedPost = await BlogPost.findByIdAndDelete(postId);
+//     if (!deletedPost) {
+//       return res.status(404).json({ error: 'Post not found' });
+//     }
+//     res.status(200).json({ message: 'Post deleted successfully', deletedPost });
+//   } catch (error) {
+//     console.error('Error deleting post:', error);
+//     res.status(500).json({ error: 'Error deleting post' });
+//   }
+// });
+
+// Set up a simple route to retrieve all blog recipes
+
+app.get('/recipes', async (req, res) => {
+  try {
+    const recipes = await BlogRecipe.find();
+    res.json(recipes);
+  } catch (error) {
+    res.status(500).json({ error: 'Error retrieving blog recipes' });
+  }
+});
+
+

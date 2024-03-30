@@ -6,20 +6,17 @@
       <p>
         RecipeCraft isn't just about creating recipes – it's also a vibrant community where culinary enthusiasts come together to discover, share, and celebrate their love of food. Explore a treasure trove of recipes from around the world, curated by passionate chefs and home cooks alike. 
       </p>
-      <p><a [class]="buttonColor + ' btn btn-lg'" href="#" role="button" (click)="toggleRecipeForm()">{{ buttonText }}</a></p>
     </div>
   </div>
   <div class="container">
     <!-- Example row of columns -->
-    <div class="container" *ngIf="showRecipeForm"> <!-- Conditionally show the recipe form -->
-      <app-recipe-form></app-recipe-form>
-    </div>
+  
     <div class="py-4">..</div>
 
-    <app-recipe-book></app-recipe-book>
-<app-recipes></app-recipes>
+
 <app-post-list></app-post-list>
 <app-blog-post></app-blog-post>
+<app-blog-recipe></app-blog-recipe>
 
     <div class="row">
       <div class="col-md-4">
