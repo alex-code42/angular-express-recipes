@@ -34,6 +34,10 @@ const blogRecipeSchema = new Schema({
   title: String,
   content: String,
   img_url: String,
+  ingredients: [{
+    name: String,
+    amount: String
+  }],
   date: { type: Date, default: Date.now }
 });
 
@@ -86,9 +90,9 @@ app.listen(port, () => {
 
 app.post('/recipes', async (req, res) => {
   try {
-    const { title, content, img_url } = req.body; // Assuming the request body contains title and content
-    console.log("this is there",req.body)
-    const newRecipe = new BlogRecipe({ title, content, img_url });
+    const { title, content, img_url,  ingredients} = req.body; // Assuming the request body contains title and content
+    console.log("Data on the Server:",req.body)
+    const newRecipe = new BlogRecipe({ title, content, img_url, ingredients });
     const savedRecipe = await newRecipe.save();
     res.status(201).json(savedRecipe); // Respond with the saved post
   } catch (error) {

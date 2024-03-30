@@ -13,7 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { PostListComponent } from './post-list/post-list.component';
 import { BlogPostComponent } from './blog-post/blog-post.component'; // Import FormsModule
 import { ReactiveFormsModule } from '@angular/forms';
-import { BlogRecipeComponent } from './blog-recipe/blog-recipe.component'; // Import ReactiveFormsModule
+import { BlogRecipeComponent } from './blog-recipe/blog-recipe.component';
+import { RecipeListComponent } from './recipe-list/recipe-list.component'; // Import ReactiveFormsModule
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { BlogRecipeComponent } from './blog-recipe/blog-recipe.component'; // Im
     NavigationComponent,
     PostListComponent,
     BlogPostComponent,
-    BlogRecipeComponent
+    BlogRecipeComponent,
+    RecipeListComponent
   ],
   imports: [
     BrowserModule,

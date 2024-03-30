@@ -1,0 +1,39 @@
+
+<hr class="featurette-divider">
+<div *ngFor="let recipe of recipes">
+<div class="row featurette">
+    <div class="col-md-7">
+      <h2 class="featurette-heading">{{ recipe.title }}</h2>
+      <p class="text-sm">{{ recipe.content }}</p>
+      <hr class="featurette-divider">
+
+      <div class="col-md-6">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Ingredient</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let ingredient of recipe.ingredients; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ ingredient.name }}</td>
+                <td>{{ ingredient.amount }}</td>
+            </tr>
+        </tbody>
+        
+        </table>
+      </div>
+    </div>
+    <div class="col-md-5">
+        <img class="thumb img-responsive center-block" 
+        data-src="holder.js/500x500/auto" 
+        alt="300x300" 
+        [src]="recipe.img_url" 
+        data-holder-rendered="true">    
+    </div>
+  </div>
+  <hr class="featurette-divider">
+</div>
