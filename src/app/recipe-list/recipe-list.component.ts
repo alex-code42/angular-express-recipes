@@ -16,6 +16,8 @@ export class RecipeListComponent {
     this.getRecipes();
 
   }
+  recipeId: string | undefined = '123'; // Example recipe ID
+
 
   getRecipes(): void {
     this.recipeService.getRecipes()

@@ -5,6 +5,8 @@
     <div class="col-md-7">
       <h2 class="featurette-heading">{{ recipe.title }}</h2>
       <p class="text-sm">{{ recipe.content }}</p>
+      <p class="text-sm">{{ recipe._id }}</p>
+
       <hr class="featurette-divider">
 
       <div class="col-md-6">
@@ -35,7 +37,8 @@
         data-holder-rendered="true">    
     </div>
   </div>
-  <app-post-list></app-post-list>
+  <app-blog-post [recipeId]="recipe._id"></app-blog-post>
+  <app-post-list [recipeId]="recipe._id"></app-post-list>
 
   <hr class="featurette-divider">
 </div>
