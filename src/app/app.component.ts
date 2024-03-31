@@ -12,10 +12,10 @@ export class AppComponent {
 
 
 
-  toggleRecipeForm() {
-    this.showRecipeForm = !this.showRecipeForm;
-    this.buttonText = this.showRecipeForm ? 'Cancel' : 'Create Recipe'; // Toggle button text
-    this.buttonColor = this.showRecipeForm ? 'btn-danger' : 'btn-success'; // Toggle button color
+  showBlogRecipe: boolean = false;
 
+  toggleBlogRecipe(): void {
+    // Toggle the value of showBlogRecipe
+    this.showBlogRecipe = !this.showBlogRecipe;
   }
 }

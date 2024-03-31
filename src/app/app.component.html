@@ -6,15 +6,16 @@
       <p>
         RecipeCraft isn't just about creating recipes – it's also a vibrant community where culinary enthusiasts come together to discover, share, and celebrate their love of food. Explore a treasure trove of recipes from around the world, curated by passionate chefs and home cooks alike. 
       </p>
+      <button class="btn btn-success" (click)="toggleBlogRecipe()">Create Recipe</button>
     </div>
   </div>
-  <div class="container">
+  <div class="">
     <!-- Example row of columns -->
   
-    <div class="py-4">..</div>
+    <!-- <div class="py-4"></div> -->
 
-<app-blog-recipe></app-blog-recipe>
-<app-recipe-list></app-recipe-list>
+    <app-blog-recipe *ngIf="showBlogRecipe"></app-blog-recipe>
+    <app-recipe-list></app-recipe-list>
 
     <div class="row">
       <div class="col-md-4">
