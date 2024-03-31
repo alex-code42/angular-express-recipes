@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Post } from '../post.model';
@@ -12,6 +12,7 @@ import { PostService } from '../post.service';
 export class BlogPostComponent implements OnInit {
   posts: Post[] = [];
   blogPostForm!: FormGroup;
+  @Input() recipeId: string | undefined;
 
   constructor(private postService: PostService, private formBuilder: FormBuilder) { }
 
@@ -30,14 +31,17 @@ export class BlogPostComponent implements OnInit {
   initForm(): void {
     this.blogPostForm = this.formBuilder.group({
       title: ['xcvxcv', Validators.required], // Define form controls and validators
-      content: ['xcvxcv', Validators.required]
+      content: ['xcvxcv', Validators.required],
+      recipeId: [this.recipeId, Validators.required] // Add recipeId to the form
+
+
     });
   }
 
-  async addNewBlogPost(title: string, content: string): Promise<void> {
+  async addNewBlogPost(title: string, content: string, recipeId: string): Promise<void> {
     const url = 'http://localhost:3000/posts'; // Your server endpoint URL
-    const data = { title, content }; // Data of the new blog post
-
+    const data = { title, content, recipeId  }; // Data of the new blog post
+    console.log("addblogpost --Data ",data)
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -61,8 +65,8 @@ export class BlogPostComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const { title, content } = this.blogPostForm.value;
-    this.addNewBlogPost(title, content)
+    const { title, content, recipeId } = this.blogPostForm.value;
+    this.addNewBlogPost(title, content, recipeId)
       .then(() => {
         // Additional actions after successful addition of the blog post
       })

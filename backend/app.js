@@ -25,11 +25,11 @@ const Schema = mongoose.Schema;
 const blogPostSchema = new Schema({
   title: String,
   content: String,
+  recipeId: String,
   date: { type: Date, default: Date.now }
 });
 
 const BlogPost = mongoose.model('BlogPost', blogPostSchema);
-
 const blogRecipeSchema = new Schema({
   title: String,
   content: String,
@@ -46,9 +46,9 @@ const BlogRecipe = mongoose.model('BlogRecipe', blogRecipeSchema);
 // Create a new blog post and save it to the database
 app.post('/posts', async (req, res) => {
   try {
-    const { title, content } = req.body; // Assuming the request body contains title and content
+    const { title, content, recipeId } = req.body; // Assuming the request body contains title and content
     console.log(req.body)
-    const newPost = new BlogPost({ title, content });
+    const newPost = new BlogPost({ title, content, recipeId });
     const savedPost = await newPost.save();
     res.status(201).json(savedPost); // Respond with the saved post
   } catch (error) {
