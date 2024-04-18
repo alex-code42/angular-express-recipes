@@ -13,7 +13,6 @@ const routes: Routes = [
   { path: 'shopping-list', component: ShoppingListComponent },
 
 
-  // Add more routes as needed
 ];
 
 @NgModule({

@@ -1,27 +1,31 @@
 <form [formGroup]="blogRecipeForm" (ngSubmit)="onSubmit()">
     <div>
         <label for="title">Title:</label>
-        <input type="text" id="title" formControlName="title">
+        <input class="form-control"  type="text" id="title" formControlName="title">
     </div>
     <div>
         <label for="content">Content:</label>
-        <textarea type="text" id="content" formControlName="content"></textarea>
+        <textarea class="form-control"  type="text" id="content" formControlName="content"></textarea>
     </div>
     <div>
         <label for="img_url">Image Url:</label>
-        <textarea type="text" id="img_url" formControlName="img_url"></textarea>
+        <textarea class="form-control"  type="text" id="img_url" formControlName="img_url"></textarea>
     </div>
+    <hr class="hr mt-8" />
+
     <div formArrayName="ingredients">
         <div *ngFor="let ingredientControl of ingredientsArray.controls; let i = index">
           <div [formGroupName]="i">
             <label for="ingredientName{{i}}">Ingredient Name:</label>
-            <input type="text" id="ingredientName{{i}}" formControlName="name">
+            <input type="text" id="ingredientName{{i}}" formControlName="name" class="form-control">
             <label for="ingredientAmount{{i}}">Ingredient Amount:</label>
-            <input type="text" id="ingredientAmount{{i}}" formControlName="amount">
+            <input type="text" id="ingredientAmount{{i}}" formControlName="amount" class="form-control">
+            <hr class="hr mt-8" />
           </div>
         </div>
+
       </div>
       
-    <button type="button" (click)="addIngredient()">Add Ingredient</button>
-    <button type="submit">Submit</button>
+    <button class="btn btn-primary" type="button" (click)="addIngredient()">Add Ingredient</button>
+    <button class="btn btn-success" type="submit">Submit</button>
 </form>
