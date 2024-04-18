@@ -15,7 +15,10 @@ import { BlogPostComponent } from './blog-post/blog-post.component'; // Import F
 import { ReactiveFormsModule } from '@angular/forms';
 import { BlogRecipeComponent } from './blog-recipe/blog-recipe.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component'; // Import ReactiveFormsModule
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './pages/home/home.component';
+import { AboutComponent } from './pages/about/about.component';
+import { ShoppingListComponent } from './pages/shopping-list/shopping-list.component';
+
 
 
 @NgModule({
@@ -27,6 +30,8 @@ import { HomeComponent } from './home/home.component';
     BlogRecipeComponent,
     RecipeListComponent,
     HomeComponent,
+    AboutComponent,
+    ShoppingListComponent,
   ],
   imports: [
     BrowserModule,
