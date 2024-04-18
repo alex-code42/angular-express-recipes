@@ -1,14 +1,15 @@
-<form [formGroup]="blogPostForm" (ngSubmit)="onSubmit()">
-    <div>
-      <label for="title">Title:</label>
-      <input type="text" id="title" formControlName="title">
-    </div>
-    <div>
-      <label for="content">Content:</label>
-      <textarea type="text" id="content" formControlName="content"></textarea>
-    </div>
-    <button type="submit">Submit</button>
-  </form>
-  <p>Recipe ID: {{ recipeId }}</p>
+<form class="form-signin" [formGroup]="blogPostForm" (ngSubmit)="onSubmit()">
+  <div class="form-group"> 
+    <h2 class="form-signin-heading">Please leave a comment</h2>
+    <label for="title" class="sr-only">Email address</label>      
+    <input type="email" id="title" class="form-control" placeholder="Email Address" required="" autofocus="">    
+  </div>
+  <div class="form-group"> 
+    <label for="content" class="sr-only">Comment</label>      
+    <input type="email" id="content" class="form-control" placeholder="Your Comment" required="" autofocus="">   
+  </div>
+  <button class="btn btn-lg btn-primary" type="submit">Submit</button> 
+</form>
+
 
   
