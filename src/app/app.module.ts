@@ -15,6 +15,7 @@ import { BlogPostComponent } from './blog-post/blog-post.component'; // Import F
 import { ReactiveFormsModule } from '@angular/forms';
 import { BlogRecipeComponent } from './blog-recipe/blog-recipe.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component'; // Import ReactiveFormsModule
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component'; // Im
     PostListComponent,
     BlogPostComponent,
     BlogRecipeComponent,
-    RecipeListComponent
+    RecipeListComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
